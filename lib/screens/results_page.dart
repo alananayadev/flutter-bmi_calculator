@@ -1,10 +1,12 @@
+import 'dart:ffi';
+
 import 'package:bmi_calculator/components/bottom_button.dart';
 import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/components/reusable_card.dart';
 import 'package:flutter/material.dart';
 
 class ResultsPage extends StatelessWidget {
-  final String bmiResult;
+  final double bmiResult;
   final String resultText;
   final String interpretation;
 
@@ -44,10 +46,12 @@ class ResultsPage extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     resultText,
-                    style: Theme.of(context).textTheme.displaySmall,
+                    style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                      color: bmiResult > 18.5 && bmiResult <= 25 ? Color(0xFF24D876) : Color(0xFFEB1555),
+                    ),
                   ),
                   Text(
-                    bmiResult,
+                    bmiResult.toStringAsFixed(1),
                     style: Theme.of(context).textTheme.displayLarge,
                   ),
                   Text(

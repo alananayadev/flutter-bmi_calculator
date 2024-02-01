@@ -5,6 +5,8 @@ ThemeData lightTheme = ThemeData(
   brightness: Brightness.light,
   colorScheme: const ColorScheme.light(
     primary: Color(0xFF717B99),
+    secondary: Color(0xFF24D876),
+    tertiary: Color(0xFFEB1555),
     primaryContainer: Color(0xFFD2D3DB),
     secondaryContainer: Color(0xFF9394A5),
     tertiaryContainer: Color(0xFFCDE990),

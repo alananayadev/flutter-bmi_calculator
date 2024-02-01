@@ -5,6 +5,8 @@ ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
   colorScheme: const ColorScheme.dark(
     primary: Color(0xFF0A0E21),
+    secondary: Color(0xFF24D876),
+    tertiary: Color(0xFFEB1555),
     primaryContainer: kActiveCardColor,
     secondaryContainer: kInactiveCardColor,
     tertiaryContainer: kBottomButtonColor,

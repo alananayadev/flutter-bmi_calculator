@@ -11,9 +11,9 @@ class CalculatorBrain {
     required this.weight,
   });
 
-  String calculateBMI() {
+  double calculateBMI() {
     _bmi = weight / pow(height / 100, 2);
-    return _bmi.toStringAsFixed(1);
+    return _bmi;
   }
 
   String getResult() {
