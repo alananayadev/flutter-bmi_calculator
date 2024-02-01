@@ -42,8 +42,8 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     color: selectedGender == Gender.male
-                        ? kActiveCardColor
-                        : kInactiveCardColor,
+                        ? Theme.of(context).colorScheme.primaryContainer
+                        : Theme.of(context).colorScheme.secondaryContainer,
                     cardChild: const IconContent(
                         icon: FontAwesomeIcons.mars, label: 'MALE'),
                     onPress: () {
@@ -58,8 +58,8 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     color: selectedGender == Gender.female
-                        ? kActiveCardColor
-                        : kInactiveCardColor,
+                        ? Theme.of(context).colorScheme.primaryContainer
+                        : Theme.of(context).colorScheme.secondaryContainer,
                     cardChild: const IconContent(
                       icon: FontAwesomeIcons.venus,
                       label: 'FEMALE',
@@ -78,13 +78,13 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ReusableCard(
-              color: kActiveCardColor,
+              color: Theme.of(context).colorScheme.primaryContainer,
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const Text(
+                  Text(
                     'HEIGHT',
-                    style: kLabelTextStyle,
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -93,36 +93,24 @@ class _InputPageState extends State<InputPage> {
                     children: [
                       Text(
                         height.toString(),
-                        style: kNumberTextStyle,
+                        style: Theme.of(context).textTheme.labelLarge,
                       ),
-                      const Text(
+                      Text(
                         'cm',
-                        style: kLabelTextStyle,
+                        style: Theme.of(context).textTheme.titleMedium,
                       ),
                     ],
                   ),
-                  SliderTheme(
-                    data: SliderTheme.of(context).copyWith(
-                      activeTrackColor: Colors.white,
-                      inactiveTrackColor: const Color(0xFF8D8E98),
-                      thumbColor: const Color(0xFFEB1555),
-                      overlayColor: const Color(0xFFEB1555),
-                      thumbShape:
-                          const RoundSliderThumbShape(enabledThumbRadius: 15.0),
-                      overlayShape:
-                          const RoundSliderOverlayShape(overlayRadius: 30.0),
-                    ),
-                    child: Slider(
-                      value: height.toDouble(),
-                      min: 120.0,
-                      max: 220.0,
-                      onChanged: (double newValue) {
-                        setState(() {
-                          height = newValue.round();
-                        });
-                      },
-                    ),
-                  )
+                  Slider(
+                    value: height.toDouble(),
+                    min: 120.0,
+                    max: 220.0,
+                    onChanged: (double newValue) {
+                      setState(() {
+                        height = newValue.round();
+                      });
+                    },
+                  ),
                 ],
               ),
             ),
@@ -132,17 +120,17 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 Expanded(
                   child: ReusableCard(
-                    color: kActiveCardColor,
+                    color: Theme.of(context).colorScheme.primaryContainer,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        const Text(
+                        Text(
                           'WEIGHT',
-                          style: kLabelTextStyle,
+                          style: Theme.of(context).textTheme.titleMedium,
                         ),
                         Text(
                           weight.toString(),
-                          style: kNumberTextStyle,
+                          style: Theme.of(context).textTheme.labelLarge,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -175,17 +163,17 @@ class _InputPageState extends State<InputPage> {
                 ),
                 Expanded(
                   child: ReusableCard(
-                    color: kActiveCardColor,
+                    color: Theme.of(context).colorScheme.primaryContainer,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        const Text(
+                        Text(
                           'AGE',
-                          style: kLabelTextStyle,
+                          style: Theme.of(context).textTheme.titleMedium,
                         ),
                         Text(
                           age.toString(),
-                          style: kNumberTextStyle,
+                          style: Theme.of(context).textTheme.labelLarge,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
