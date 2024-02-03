@@ -1,0 +1,17 @@
+{
+  "appTitle": "CALCULADORA IMC",
+  "maleLabel": "HOMBRE",
+  "femaleLabel": "MUJER",
+  "heightLabel": "ESTATURA",
+  "weightLabel": "PESO",
+  "ageLabel": "EDAD",
+  "calculateTitleButton": "CALCULAR",
+  "resultTitle": "Tu Resultado",
+  "underweigthLabel": "Peso bajo",
+  "normalweightLabel": "Normal",
+  "overweightLabel": "Sobrepeso",
+  "underweightDescription":"Tienes un peso abajo de lo normal. ¡Come un poco más!",
+  "normalweightDescription": "Tienes un peso normal. ¡Excelente trabajo!",
+  "overweightDescription": "Tienes un peso arriba de lo normal. ¡Trata de ejercitarte más!",
+  "recalculateTitleButton": "RECALCULAR"
+}

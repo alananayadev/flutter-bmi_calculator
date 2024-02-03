@@ -4,6 +4,7 @@ import 'package:bmi_calculator/components/bottom_button.dart';
 import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/components/reusable_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ResultsPage extends StatelessWidget {
   final double bmiResult;
@@ -20,7 +21,7 @@ class ResultsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BMI Calculator'),
+        title: Text(AppLocalizations.of(context)?.appTitle ?? "BMI CALCULATOR"),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -31,7 +32,7 @@ class ResultsPage extends StatelessWidget {
               padding: const EdgeInsets.all(15.0),
               alignment: Alignment.bottomLeft,
               child: Text(
-                'Your Result',
+                AppLocalizations.of(context)?.resultTitle ?? "Your Result",
                 style: Theme.of(context).textTheme.titleLarge,
               ),
             ),
@@ -67,7 +68,7 @@ class ResultsPage extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
             },
-            buttonTitle: 'RE-CALCULATE',
+            buttonTitle: AppLocalizations.of(context)?.recalculateTitleButton ?? "RE-CALCULATE",
           )
         ],
       ),

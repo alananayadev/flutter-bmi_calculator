@@ -1,14 +1,19 @@
 import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class CalculatorBrain {
   final int height;
   final int weight;
+  final BuildContext context;
 
   double _bmi = 0.0;
 
   CalculatorBrain({
     required this.height,
     required this.weight,
+    required this.context
   });
 
   double calculateBMI() {
@@ -18,21 +23,21 @@ class CalculatorBrain {
 
   String getResult() {
     if (_bmi >= 25) {
-      return 'Overweight';
+      return AppLocalizations.of(context)?.overweightLabel ?? "Overweight";
     } else if (_bmi > 18.5) {
-      return 'Normal';
+      return AppLocalizations.of(context)?.normalweightLabel ?? "Normal";
     } else {
-      return 'Underweight';
+      return AppLocalizations.of(context)?.underweigthLabel ?? "Underweight";
     }
   }
 
   String getInterpretation() {
     if (_bmi >= 25) {
-      return 'You have higher than normal body weight. Try to exercise more.';
+      return AppLocalizations.of(context)?.overweightDescription ?? "Overweight";
     } else if (_bmi > 18.5) {
-      return 'You have a normal body weight. Good job!';
+      return AppLocalizations.of(context)?.normalweightDescription ?? "Normal";
     } else {
-      return 'You have a lower than normal body weight. You can eat a bit more.';
+      return AppLocalizations.of(context)?.underweightDescription ?? "Underweight";
     }
   }
 }

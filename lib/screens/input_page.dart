@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi_calculator/components/icon_content.dart';
 import 'package:bmi_calculator/components/reusable_card.dart';
-import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/components/bottom_button.dart';
 import 'package:bmi_calculator/components/round_icon_button.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 enum Gender {
   male,
@@ -31,7 +31,7 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BMI CALCULATOR'),
+        title: Text(AppLocalizations.of(context)?.appTitle ?? "BMI Calculator"),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -44,11 +44,13 @@ class _InputPageState extends State<InputPage> {
                     color: selectedGender == Gender.male
                         ? Theme.of(context).colorScheme.primaryContainer
                         : Theme.of(context).colorScheme.secondaryContainer,
-                    cardChild: const IconContent(
-                        icon: FontAwesomeIcons.mars, label: 'MALE'),
+                    cardChild: IconContent(
+                        icon: FontAwesomeIcons.mars,
+                        label: AppLocalizations.of(context)?.maleLabel ?? "MALE"
+                    ),
                     onPress: () {
                       setState(
-                        () {
+                            () {
                           selectedGender = Gender.male;
                         },
                       );
@@ -60,13 +62,13 @@ class _InputPageState extends State<InputPage> {
                     color: selectedGender == Gender.female
                         ? Theme.of(context).colorScheme.primaryContainer
                         : Theme.of(context).colorScheme.secondaryContainer,
-                    cardChild: const IconContent(
+                    cardChild: IconContent(
                       icon: FontAwesomeIcons.venus,
-                      label: 'FEMALE',
+                      label: AppLocalizations.of(context)?.femaleLabel ?? "FEMALE",
                     ),
                     onPress: () {
                       setState(
-                        () {
+                            () {
                           selectedGender = Gender.female;
                         },
                       );
@@ -83,7 +85,7 @@ class _InputPageState extends State<InputPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    'HEIGHT',
+                    AppLocalizations.of(context)?.heightLabel ?? "HEIGHT",
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   Row(
@@ -125,7 +127,7 @@ class _InputPageState extends State<InputPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          'WEIGHT',
+                          AppLocalizations.of(context)?.weightLabel ?? "WEIGHT",
                           style: Theme.of(context).textTheme.titleMedium,
                         ),
                         Text(
@@ -140,7 +142,7 @@ class _InputPageState extends State<InputPage> {
                               onPressed: () {
                                 setState(() {
                                   weight =
-                                      weight - 1 >= 0 ? weight - 1 : weight;
+                                  weight - 1 >= 0 ? weight - 1 : weight;
                                 });
                               },
                             ),
@@ -168,7 +170,7 @@ class _InputPageState extends State<InputPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          'AGE',
+                          AppLocalizations.of(context)?.ageLabel ?? "AGE",
                           style: Theme.of(context).textTheme.titleMedium,
                         ),
                         Text(
@@ -209,7 +211,7 @@ class _InputPageState extends State<InputPage> {
           BottomButton(
               onTap: () {
                 CalculatorBrain calc =
-                    CalculatorBrain(height: height, weight: weight);
+                CalculatorBrain(height: height, weight: weight, context: context);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -221,7 +223,7 @@ class _InputPageState extends State<InputPage> {
                   ),
                 );
               },
-              buttonTitle: "CALCULATE")
+              buttonTitle: AppLocalizations.of(context)?.calculateTitleButton ?? "CALCULATE")
         ],
       ),
     );

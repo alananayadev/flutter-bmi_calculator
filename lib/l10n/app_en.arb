@@ -1,0 +1,41 @@
+{
+  "appTitle": "BMI CALCULATOR",
+  "@appTitle": {
+    "description": "App Title"
+  },
+  "maleLabel": "MALE",
+  "@maleLabel": {
+    "description": "Male genre label text"
+  },
+  "femaleLabel": "FEMALE",
+  "@femaleLabel": {
+    "description": "Female genre label text"
+  },
+  "heightLabel": "HEIGHT",
+  "@heightLabel": {
+    "description": "Height title label text"
+  },
+  "weightLabel": "WEIGHT",
+  "@weightLabel": {
+    "description": "Weight title label text"
+  },
+  "ageLabel": "AGE",
+  "@ageLabel": {
+    "description": "Age title label text"
+  },
+  "calculateTitleButton": "CALCULATE",
+  "@calculateTitleButton": {
+    "description": "Calculate title button"
+  },
+  "resultTitle": "Your Result",
+  "@resultTitle": {
+    "description": "resulta page title headline"
+  },
+  "underweigthLabel": "Underweight",
+  "normalweightLabel": "Normal",
+  "overweightLabel": "Overweight",
+  "underweightDescription":"You have a lower than normal body weight. You can eat a bit more.",
+  "normalweightDescription": "You have a normal body weight. Good job!",
+  "overweightDescription": "You have higher than normal body weight. Try to exercise more.",
+  "recalculateTitleButton": "RE-CALCULATE"
+}
