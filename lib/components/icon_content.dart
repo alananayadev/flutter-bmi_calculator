@@ -23,7 +23,7 @@ class IconContent extends StatelessWidget {
         ),
         Text(
           label,
-          style: kLabelTextStyle,
+          style: Theme.of(context).textTheme.titleMedium,
         )
       ],
     );

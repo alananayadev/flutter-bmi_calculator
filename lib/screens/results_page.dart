@@ -1,10 +1,12 @@
+import 'dart:ffi';
+
 import 'package:bmi_calculator/components/bottom_button.dart';
 import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/components/reusable_card.dart';
 import 'package:flutter/material.dart';
 
 class ResultsPage extends StatelessWidget {
-  final String bmiResult;
+  final double bmiResult;
   final String resultText;
   final String interpretation;
 
@@ -26,34 +28,36 @@ class ResultsPage extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: Container(
-              padding: EdgeInsets.all(15.0),
+              padding: const EdgeInsets.all(15.0),
               alignment: Alignment.bottomLeft,
-              child: const Text(
+              child: Text(
                 'Your Result',
-                style: kTitleTextStyle,
+                style: Theme.of(context).textTheme.titleLarge,
               ),
             ),
           ),
           Expanded(
             flex: 5,
             child: ReusableCard(
-              color: kActiveCardColor,
+              color: Theme.of(context).colorScheme.primaryContainer,
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text(
                     resultText,
-                    style: kResultTextStyle,
+                    style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                      color: bmiResult > 18.5 && bmiResult <= 25 ? Color(0xFF24D876) : Color(0xFFEB1555),
+                    ),
                   ),
                   Text(
-                    bmiResult,
-                    style: kBMITextStyle,
+                    bmiResult.toStringAsFixed(1),
+                    style: Theme.of(context).textTheme.displayLarge,
                   ),
                   Text(
                     interpretation,
                     textAlign: TextAlign.center,
-                    style: kBodyTextStyle,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   )
                 ],
               ),
